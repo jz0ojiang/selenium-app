@@ -4,9 +4,14 @@ import { ref } from 'vue';
 
 const e2_block_click = ref("Click me!")
 
+var timer = 0
+
 const clickHandler = () => {
   e2_block_click.value = "Clicked!"
-  setTimeout(() => {
+  // 重置上一个计时器
+  clearTimeout(timer)
+
+  timer = setTimeout(() => {
     e2_block_click.value = "Click me!"
   }, 5000);
 }
@@ -61,7 +66,7 @@ const clickHandler = () => {
   justify-content: center;
   cursor: pointer;
   &:active {
-    background-color: #EE0000;
+    background-color: #0073EE;
     color: #fff;
   }
 }
