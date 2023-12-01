@@ -29,12 +29,11 @@ const dbclickHandler = () => {
   }, 5000);
 };
 
-
 const dragX = ref(0);
 const dragY = ref(0);
 const clientX = ref(0);
 const clientY = ref(0);
-const clientDisplay = ref('block');
+const clientDisplay = ref("block");
 
 const dragStartHandler = (e: DragEvent) => {
   // 获取鼠标位置
@@ -43,31 +42,41 @@ const dragStartHandler = (e: DragEvent) => {
 };
 
 const dragHandler = (e: DragEvent) => {
-  clientDisplay.value = 'none'
+  clientDisplay.value = "none";
 };
 
-const dragEndHandler = (e: DragEvent) => { 
+const dragEndHandler = (e: DragEvent) => {
   // 获取鼠标位置，与 dragStartHandler 中的位置相减得到偏移量
   clientX.value += e.screenX - dragX.value;
   clientY.value += e.screenY - dragY.value;
-  clientDisplay.value = 'block'
+  clientDisplay.value = "block";
   dragX.value = 0;
   dragY.value = 0;
-
 };
+
+const e5_2_block_rightclick = ref("Right click me!");
+
+const rightClickHandler = (e: MouseEvent) => {
+  e5_2_block_rightclick.value = "Right clicked!";
+  e.preventDefault();
+  setTimeout(() => {
+    e5_2_block_rightclick.value = "Right click me!";
+  }, 5000);
+};
+
 </script>
 
 <template>
   <div class="e5_2-container">
     <div
-      class="e5_2-block-hover e5_2-disable-select"
+      class="e5_2-block e5_2-block-hover e5_2-disable-select"
       id="e5_2-block-hover"
       name="e5_2-block-hover"
     >
       Hover me!
     </div>
     <div
-      class="e5_2-block-click e5_2-disable-select"
+      class="e5_2-block e5_2-block-click e5_2-disable-select"
       id="e5_2-block-click"
       name="e5_2-block-click"
       @click="clickHandler"
@@ -75,7 +84,7 @@ const dragEndHandler = (e: DragEvent) => {
       {{ e5_2_block_click }}
     </div>
     <div
-      class="e5_2-block-doubleclick e5_2-disable-select"
+      class="e5_2-block e5_2-block-doubleclick e5_2-disable-select"
       id="e5_2-block-doubleclick"
       name="e5_2-block-doubleclick"
       @dblclick="dbclickHandler"
@@ -83,7 +92,15 @@ const dragEndHandler = (e: DragEvent) => {
       {{ e5_2_block_dbclick }}
     </div>
     <div
-      class="e5_2-block-drag"
+      class="e5_2-block e5_2-block-rightclick e5_2-disable-select"
+      id="e5_2-block-rightclick"
+      name="e5_2-block-rightclick"
+      @contextmenu.prevent="rightClickHandler"
+    >
+      {{ e5_2_block_rightclick }}
+    </div>
+    <div
+      class="e5_2-block e5_2-block-drag"
       id="e5_2-block-drag"
       name="e5_2-block-drag"
       draggable="true"
@@ -107,19 +124,20 @@ const dragEndHandler = (e: DragEvent) => {
 }
 
 .e5_2-container {
-  display: grid;
-  width: 50%;
+  display: flex;
+  width: 100%;
   margin: 0 auto;
   align-items: center;
-  justify-content: space-between;
-  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-around;
+  /* 自动换行 */
+  flex-wrap: wrap;
   padding: 1rem;
   font-size: 1rem;
   font-weight: bold;
   min-height: 70vh;
 }
 
-.e5_2-block-hover {
+.e5_2-block {
   width: 200px;
   height: 200px;
   background-color: #ccc;
@@ -127,6 +145,9 @@ const dragEndHandler = (e: DragEvent) => {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+.e5_2-block-hover {
   &:hover {
     background-color: #ee0000;
     color: #fff;
@@ -134,13 +155,6 @@ const dragEndHandler = (e: DragEvent) => {
 }
 
 .e5_2-block-click {
-  width: 200px;
-  height: 200px;
-  background-color: #ccc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
   &:active {
     background-color: #0073ee;
     color: #fff;
@@ -148,13 +162,6 @@ const dragEndHandler = (e: DragEvent) => {
 }
 
 .e5_2-block-doubleclick {
-  width: 200px;
-  height: 200px;
-  background-color: #ccc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
   &:active {
     background-color: #00eeee;
     color: #fff;
@@ -163,13 +170,6 @@ const dragEndHandler = (e: DragEvent) => {
 
 .e5_2-block-drag {
   position: fixed;
-  width: 200px;
-  height: 200px;
-  background-color: #ccc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
   bottom: 100px;
   left: calc(50% - 100px);
   z-index: 1;
