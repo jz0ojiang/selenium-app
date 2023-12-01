@@ -34,16 +34,5 @@ const e5InputHandler = (e: Event) => {
 
 #e5-Input {
     width: clamp(200px, 50%, 400px);
-    height: 100%;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 0.5rem;
-    font-size: 1rem;
-    font-weight: bold;
-    outline: none;
-    transition: all 0.2s ease-in-out;
-    &:focus {
-        border: 1px solid #0000AA;
-    }
 }
 </style>

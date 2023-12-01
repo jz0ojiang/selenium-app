@@ -1,6 +1,6 @@
 <template>
     <div>
-        <input type="text" class="searchbox" v-model="searchbox" />
+        <input type="text" class="searchbox" v-model="searchbox" placeholder="搜索" />
     </div>
     <div class="results">
         <div v-for="result in results" :key="result.name" @click="push(result.path)" class="result">
@@ -21,7 +21,7 @@ const push = (path: string) => {
 }
 
 const searchbox = ref('');
-const hint = ref("")
+const hint = ref("搜索支持关键词/路径")
 
 var data = [] as any[];
 axios.get('/data.json').then((res) => {
@@ -50,7 +50,7 @@ const searchFromData = (query: string) => {
 watch(searchbox, (newVal, oldVal) => {
     if (newVal === '') {
         results.value = [];
-        hint.value = ''
+        hint.value = '搜索支持关键词/路径'
         return;
     }
     results.value = searchFromData(newVal)
@@ -58,20 +58,6 @@ watch(searchbox, (newVal, oldVal) => {
 </script>
 
 <style lang="scss" scoped>
-.searchbox {
-    width: 100%;
-    height: 100%;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 0.5rem;
-    font-size: 1rem;
-    font-weight: bold;
-    outline: none;
-    transition: all 0.2s ease-in-out;
-    &:focus {
-        border: 1px solid #0000AA;
-    }
-}
 .results {
     position: relative;
     width: clamp(200px, 100%, 300px);

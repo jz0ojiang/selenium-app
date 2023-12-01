@@ -14,7 +14,7 @@ const router = createRouter({
     },
     {
       path: '/example5-1',
-      name: '5-模拟用户输入 键盘操作',
+      name: 'example5-1',
       meta: {
         title: "5-模拟用户输入 键盘操作 | 自动化测试"
       },
@@ -22,11 +22,19 @@ const router = createRouter({
     },
     {
       path: '/example5-2',
-      name: '5-模拟用户输入 鼠标操作',
+      name: 'example5-2',
       meta: {
         title: "5-模拟用户输入 鼠标操作 | 自动化测试"
       },
       component: () => import('../views/example5-2.vue')
+    },
+    {
+      path: '/login-example',
+      name: 'login-example',
+      meta: {
+        title: "实例：使用 Selenium 模拟用户登录 | 自动化测试"
+      },
+      component: () => import('../views/login-example.vue')
     },
     // 404 return home
     {
