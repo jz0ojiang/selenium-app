@@ -7,19 +7,25 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
+      meta: {
+        title: "自动化测试：Selenium - im0o"
+      },
       component: HomeView
     },
     {
       path: '/example5-1',
       name: '5-模拟用户输入 键盘操作',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+      meta: {
+        title: "5-模拟用户输入 键盘操作 | 自动化测试"
+      },
       component: () => import('../views/example5-1.vue')
     },
     {
       path: '/example5-2',
       name: '5-模拟用户输入 鼠标操作',
+      meta: {
+        title: "5-模拟用户输入 鼠标操作 | 自动化测试"
+      },
       component: () => import('../views/example5-2.vue')
     },
     // 404 return home
@@ -29,5 +35,13 @@ const router = createRouter({
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  /* 路由发生变化修改页面title */
+  if (to.meta.title) {
+    document.title = to.meta.title as string;
+  }
+  next();
+});
 
 export default router
