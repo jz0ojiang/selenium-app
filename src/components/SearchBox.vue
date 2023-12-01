@@ -37,7 +37,8 @@ const searchFromData = (query: string) => {
     var resultFromPath = data.filter((item: any) => {
         return item.path.includes(query);
     });
-    result = result.concat(resultFromPath);
+    // 合并 result 和 resultFromPath 但去除重复项
+    result = [...new Set([...result, ...resultFromPath])];
     hint.value = ''
     if (result.length > window.innerHeight / 120) {
         result = result.slice(0, window.innerHeight / 120);
