@@ -1,0 +1,12 @@
+/* 导入 base.css */
+@import "./base.css";
+
+/* 导入 LXGWWenKaiMonoLite-Regular.woff2 */
+@font-face {
+    font-family: "LXGWWenKaiMonoLite";
+    src: url("./LXGWWenKaiMonoLite-Regular.woff2") format("woff2");
+}
+
+* {
+    font-family: LXGWWenKaiMonoLite, sans-serif;
+}
