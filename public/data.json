@@ -1,14 +1,14 @@
 [
     {
-        "name": "5-模拟用户输入 键盘操作",
+        "name": "实例：模拟用户输入 键盘操作",
         "path": "/example5-1"
     },
     {
-        "name": "5-模拟用户输入 鼠标操作",
+        "name": "实例：模拟用户输入 鼠标操作",
         "path": "/example5-2"
     },
     {
-        "name": "实例：使用 Selenium 模拟用户登录",
+        "name": "实训：使用 Selenium 模拟用户登录",
         "path": "/login-example"
     }
 ]
