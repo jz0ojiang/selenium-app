@@ -29,6 +29,30 @@ const router = createRouter({
       component: () => import('../views/example5-2.vue')
     },
     {
+      path: '/example6-1',
+      name: 'example6-1',
+      meta: {
+        title: "实例：使用 Selenium 切换浏览器窗口 | 自动化测试"
+      },
+      component: () => import('../views/example6-1.vue')
+    },
+    {
+      path: '/example6-2',
+      name: 'example6-2',
+      meta: {
+        title: "实例：使用 Selenium 切换浏览器窗口 | 自动化测试"
+      },
+      component: () => import('../views/example6-2.vue')
+    },
+    {
+      path: '/example6-3',
+      name: 'example6-3',
+      meta: {
+        title: "实例：使用 Selenium 设置等待时间 | 自动化测试"
+      },
+      component: () => import('../views/example6-3.vue')
+    },
+    {
       path: '/login-example',
       name: 'login-example',
       meta: {

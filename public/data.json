@@ -8,6 +8,14 @@
         "path": "/example5-2"
     },
     {
+        "name": "实例：使用 Selenium 切换浏览器窗口",
+        "path": "/example6-1"
+    },
+    {
+        "name": "实例：使用 Selenium 设置等待时间",
+        "path": "/example6-3"
+    },
+    {
         "name": "实训：使用 Selenium 模拟用户登录",
         "path": "/login-example"
     }
