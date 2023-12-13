@@ -60,6 +60,14 @@ const router = createRouter({
       },
       component: () => import('../views/login-example.vue')
     },
+    {
+      path: '/form-example',
+      name: 'form-example',
+      meta: {
+        title: "实训：使用 Selenium 进行表单操作 | 自动化测试"
+      },
+      component: () => import('../views/form-example.vue')
+    },
     // 404 return home
     {
       path: '/:catchAll(.*)',

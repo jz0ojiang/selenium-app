@@ -18,5 +18,9 @@
     {
         "name": "实训：使用 Selenium 模拟用户登录",
         "path": "/login-example"
+    },
+    {
+        "name": "实训：使用 Selenium 进行表单操作",
+        "path": "/form-example"
     }
 ]
