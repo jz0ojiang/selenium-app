@@ -16,6 +16,10 @@
         "path": "/example6-3"
     },
     {
+        "name": "实例：使用 Selenium 进行弹窗操作",
+        "path": "/dialog-example"
+    },
+    {
         "name": "实训：使用 Selenium 模拟用户登录",
         "path": "/login-example"
     },

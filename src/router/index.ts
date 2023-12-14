@@ -68,6 +68,14 @@ const router = createRouter({
       },
       component: () => import('../views/form-example.vue')
     },
+    {
+      path: '/dialog-example',
+      name: 'dialog-example',
+      meta: {
+        title: "实例：使用 Selenium 进行弹窗操作 | 自动化测试"
+      },
+      component: () => import('../views/dialog-example.vue')
+    },
     // 404 return home
     {
       path: '/:catchAll(.*)',
