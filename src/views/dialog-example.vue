@@ -52,7 +52,6 @@ const handlePrompt = () => {
         id="prompt"
         @click="handlePrompt"
       />
-      <br/>
       <p class="result" id="result">{{ result }}</p>
     </div>
   </div>
@@ -74,5 +73,8 @@ const handlePrompt = () => {
 .dialog-content {
   width: clamp(200px, 50%, 400px);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 </style>
